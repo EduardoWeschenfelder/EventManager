@@ -2,7 +2,7 @@ import { useThrottleButton } from "./components/exemplo";
 
 export default function Home() {
   const { setNextClick } = useThrottleButton(() => {
-    console.log("Evento disparao");
+    console.log("Evento disparado");
   });
 
   return (
