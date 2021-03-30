@@ -54,9 +54,12 @@ function App() {
 }
 export default App;
 ```
-A ideia é utilizar da seguinte forma:
+Existem dois componentes exemplo 1 e 2 os quais são tentativas que ainda apresentam erros
+
+Uma opção é utilizar da seguinte forma (mas, pode ser dirente desde que atenda aos requisitos):
 ````
 import { useThrottleButton } from "./components/exemplo2";
+export default function Home() {
   return (
     <>
       <button
