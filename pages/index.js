@@ -1,45 +1,24 @@
-// import { useThrottleButton } from "./components/exemplo";
-import { useThrottleButton } from "./components/exemplo2";
-
+import { ThrottleButton } from "./components/ThrottleButton";
 export default function Home() {
-  // const { setNextClick } = useThrottleButton(() => {
-  //   console.log("Evento disparado");
-  // });
-
-  // return (
-  //   <>
-  //     <button
-  //       onClick={() => {
-  //         setNextClick(2000);
-  //       }}
-  //     >
-  //       Evento 1
-  //     </button>
-  //     <button
-  //       onClick={() => {
-  //         setNextClick(3000);
-  //       }}
-  //     >
-  //       Evento 2
-  //     </button>
-  //   </>
-  // );
-
+  const { useThrottleButton: throttleBtn1 } = ThrottleButton(2000);
+  const { useThrottleButton: throttleBtn2 } = ThrottleButton(7000);
   return (
     <>
+      <label>Botão 1 com delay de 2s</label>
       <button
         onClick={() => {
-          useThrottleButton(2000, () => {
-            console.log("Evento 1 disparado");
+          throttleBtn1(() => {
+            window.alert(`Evento 1 disparado`);
           });
         }}
       >
         Evento 1
       </button>
+      <label>Botão 2 com delay de 7s</label>
       <button
         onClick={() => {
-          useThrottleButton(3000, () => {
-            console.log("Evento 2 disparado");
+          throttleBtn2(() => {
+            window.alert(`Evento 2 disparado`);
           });
         }}
       >
