@@ -1,7 +1,18 @@
+import React, { useState } from "react";
 import { ThrottleButton } from "./components/ThrottleButton";
+
+import { Regex } from "./components/Regex";
 export default function Home() {
   const { useThrottleButton: throttleBtn1 } = ThrottleButton(2000);
   const { useThrottleButton: throttleBtn2 } = ThrottleButton(7000);
+
+  const [text, setText] = useState("");
+  const regex = /[^a-zA-Z0-9 -]/g;
+
+  function matchText() {
+    console.log("Match", text.match(regex));
+  }
+
   return (
     <>
       <label>Botão 1 com delay de 2s</label>
@@ -24,6 +35,14 @@ export default function Home() {
       >
         Evento 2
       </button>
+
+      <input
+        neme={text}
+        onChange={(e) => setText(e.target.value)}
+        type="text"
+      />
+      <button onClick={matchText}>test</button>
+      <Regex />
     </>
   );
 }
